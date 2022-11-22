@@ -1,10 +1,5 @@
 import React from 'react';
-import {
-  HashRouter as Router,
-  Route,
-  Switch,
-  Redirect,
-} from 'react-router-dom';
+import { HashRouter as Router, Route, Routes } from 'react-router-dom';
 import Auth from 'routes/Auth';
 import Home from 'routes/Home';
 import Profile from 'routes/Profile';
@@ -14,7 +9,7 @@ const AppRouter = ({ refreshUser, isLoggedIn, userObj }) => {
   return (
     <Router>
       {isLoggedIn && <Navigation userObj={userObj} />}
-      <Switch>
+      <Routes>
         <>
           {isLoggedIn ? (
             <div
@@ -31,24 +26,22 @@ const AppRouter = ({ refreshUser, isLoggedIn, userObj }) => {
                 exact
                 path={`${process.env.PUBLIC_URL}/`}
                 element={<Home userObj={userObj} />}
-              ></Route>
+              />
               <Route
                 exact
                 path='/profile'
                 element={
                   <Profile userObj={userObj} refreshUser={refreshUser} />
                 }
-              ></Route>
-              <Redirect from='*' to='/' />
+              />
             </div>
           ) : (
             <>
-              <Route exact path='/' element={<Auth />}></Route>
-              <Redirect from='*' to='/' />
+              <Route exact path='/' element={<Auth />} />
             </>
           )}
         </>
-      </Switch>
+      </Routes>
     </Router>
   );
 };
