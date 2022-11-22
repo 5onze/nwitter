@@ -29,7 +29,7 @@ const AppRouter = ({ refreshUser, isLoggedIn, userObj }) => {
             >
               <Route
                 exact
-                path='/'
+                path={`${process.env.PUBLIC_URL}/`}
                 element={<Home userObj={userObj} />}
               ></Route>
               <Route
