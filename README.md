@@ -1,15 +1,5 @@
 # 트위터 클론코딩 ( + Firebase )
 
-Actions: https://www.notion.so/Dark-mode-046935f180c8471e9ffb33ea09bc8ac0, https://www.notion.so/fb421bbc474b449f8891104520b24268, https://www.notion.so/96eb1f89a3514a3f8097d0492ecfb933, https://www.notion.so/6a7a946085934376b90d90689d921934, https://www.notion.so/Home-08a44fdf95a94e8abee31abba0d42728, https://www.notion.so/Profile-97f3c807536b4961a9c58d350f817558, https://www.notion.so/User-0281260a3c0548d8b310c379dff40206, https://www.notion.so/React-aa6c2380ae594771927b9a86bd419a6f
-Area: IT공부
-Area-T: IT공부
-Done-Check: No
-Due: 2023년 2월 28일
-Goal: https://www.notion.so/React-JS-c50bda535baf4dfea6541496f4eeec1e
-Percent: 0.375
-Progress: ▓▓▓░░░░░░░ 38%
-Status: Active 🔥
-
 ### 1. 서비스 소개
 
 트위터 클론코딩
