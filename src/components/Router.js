@@ -1,47 +1,47 @@
-import React from 'react';
-import { HashRouter as Router, Route, Routes } from 'react-router-dom';
-import Auth from 'routes/Auth';
-import Home from 'routes/Home';
-import Profile from 'routes/Profile';
-import Navigation from 'components/Navigation';
+import React from "react";
+import {
+  HashRouter as Router,
+  Navigate,
+  Route,
+  Routes,
+} from "react-router-dom";
+import Auth from "routes/Auth";
+import Home from "routes/Home";
+import Profile from "routes/Profile";
+import Navigation from "components/Navigation";
+import HeaderMenu from "components/HeaderMenu";
+import SearchBar from "./SearchBar";
 
 const AppRouter = ({ refreshUser, isLoggedIn, userObj }) => {
   return (
     <Router>
-      {isLoggedIn && <Navigation userObj={userObj} />}
-      <Routes>
-        <>
-          {isLoggedIn ? (
-            <div
-              style={{
-                maxWidth: 890,
-                width: '100%',
-                margin: '0 auto',
-                marginTop: 80,
-                display: 'flex',
-                justifyContent: 'center',
-              }}
-            >
-              <Route
-                exact
-                path={`${process.env.PUBLIC_URL}/`}
-                element={<Home userObj={userObj} />}
-              />
-              <Route
-                exact
-                path='/profile'
-                element={
-                  <Profile userObj={userObj} refreshUser={refreshUser} />
-                }
-              />
-            </div>
-          ) : (
-            <>
-              <Route exact path='/' element={<Auth />} />
-            </>
-          )}
-        </>
-      </Routes>
+      <div className="center">
+        <HeaderMenu />
+        <div className="container">
+          {isLoggedIn && <Navigation userObj={userObj} />}
+          <div className="center">
+            <Routes>
+              {isLoggedIn ? (
+                <>
+                  <Route path="/" element={<Home userObj={userObj} />} />
+                  <Route
+                    path="/profile"
+                    element={
+                      <Profile userObj={userObj} refreshUser={refreshUser} />
+                    }
+                  />
+                </>
+              ) : (
+                <>
+                  <Route path="/" element={<Auth />} />
+                  <Route path="*" element={<Navigate replace to="/" />} />
+                </>
+              )}
+            </Routes>
+          </div>
+        </div>
+        <SearchBar />
+      </div>
     </Router>
   );
 };

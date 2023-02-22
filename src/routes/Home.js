@@ -1,13 +1,14 @@
-import { dbService } from 'fbase';
-import React, { useEffect, useState } from 'react';
-import Nweet from 'components/Nweet';
-import NweetFactory from 'components/NweetFactory';
+import { dbService } from "fbase";
+import React, { useEffect, useState } from "react";
+import Nweet from "components/Nweet";
+import NweetFactory from "components/NweetFactory";
+import Seo from "components/Seo";
 
 const Home = ({ userObj }) => {
   const [nweets, setNweets] = useState([]);
   useEffect(() => {
     // 실시간으로 데이터를 데이터베이스에서 가져오기
-    dbService.collection('nweets').onSnapshot((snapshot) => {
+    dbService.collection("nweets").onSnapshot((snapshot) => {
       const nweetArray = snapshot.docs.map((doc) => ({
         id: doc.id,
         ...doc.data(),
@@ -16,7 +17,8 @@ const Home = ({ userObj }) => {
     });
   }, []);
   return (
-    <div className='container'>
+    <div className="container">
+      <Seo title="Home" />
       <NweetFactory userObj={userObj} />
       <div style={{ marginTop: 30 }}>
         {nweets.map((nweet) => (

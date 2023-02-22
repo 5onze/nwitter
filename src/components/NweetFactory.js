@@ -1,12 +1,27 @@
 import React, { useState } from 'react';
-import { dbService, storageService } from 'fbase';
+import { dbService, firebaseInstance, storageService } from 'fbase';
 import { v4 as uuidv4 } from 'uuid';
-import { faPlus, faTimes } from '@fortawesome/free-solid-svg-icons';
+import { faTimes, faImage } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { Link } from 'react-router-dom';
 
 const NweetFactory = ({ userObj }) => {
+  // 타임스탬프 (한국시간)
+  const TIME_ZONE = 3240 * 10000;
+  const timestamp = firebaseInstance.firestore.Timestamp.fromDate(
+    new Date(+new Date() + TIME_ZONE)
+  )
+    .toDate()
+    .toISOString()
+    .replace('T', ' ')
+    .replace(/\..*/, '');
+  const date = firebaseInstance.firestore.Timestamp.fromDate(new Date());
+
+  // nweet Hooks
   const [nweet, setNweet] = useState('');
   const [attachment, setAttachment] = useState('');
+
+  // Submit event
   const onSubmit = async (event) => {
     if (nweet === '') {
       return;
@@ -18,7 +33,7 @@ const NweetFactory = ({ userObj }) => {
       // 파일 레퍼런스 만들기
       const attachmentRef = storageService
         .ref()
-        .child(`${userObj.uid}/${uuidv4()}`);
+        .child(`${userObj.uid}/${uuidv4()}.jpg`);
       // 파일 업로드
       const response = await attachmentRef.putString(attachment, 'data_url');
       // Url 가져오기
@@ -26,14 +41,18 @@ const NweetFactory = ({ userObj }) => {
     }
     const nweetObj = {
       text: nweet,
-      createAt: Date.now(),
+      createAt: timestamp,
       creatorId: userObj.uid,
+      photoURL: userObj.photoURL,
+      displayName: userObj.displayName,
       attachmentUrl,
     };
     await dbService.collection('nweets').add(nweetObj);
+
     setNweet('');
     setAttachment('');
   };
+
   const onChange = (event) => {
     const {
       target: { value },
@@ -60,29 +79,56 @@ const NweetFactory = ({ userObj }) => {
   return (
     <form onSubmit={onSubmit} className='factoryForm'>
       <div className='factoryInput__container'>
-        <input
-          className='factoryInput__input'
-          value={nweet}
-          onChange={onChange}
-          type='text'
-          placeholder="What's on your mind?"
-          maxLength={120}
-        />
-        <input type='submit' value='&rarr;' className='factoryInput__arrow' />
+        <div className='factoryInput__left'>
+          <Link
+            to='/profile'
+            style={{
+              display: 'flex',
+              flexDirection: 'column',
+              alignItems: 'center',
+              fontSize: 12,
+            }}
+          >
+            <div className='main_profileImage'>
+              <img
+                src={userObj.photoURL}
+                style={{
+                  backgroundImage: userObj.photoURL,
+                }}
+                alt={userObj.displayName}
+              />
+            </div>
+          </Link>
+        </div>
+        <div className='factoryInput__right'>
+          <input
+            className='factoryInput__input'
+            value={nweet}
+            onChange={onChange}
+            type='text'
+            placeholder='무슨 일이 일어나고 있나요?'
+            maxLength={120}
+          />
+          <div className='factoryInput__nweetLine'>
+            <label htmlFor='attach-file' className='factoryInput__label'>
+              <FontAwesomeIcon icon={faImage} size='lg' title='media' />
+              <input
+                id='attach-file'
+                type='file'
+                accept='image/*'
+                onChange={onFileChange}
+                style={{
+                  opacity: 0,
+                }}
+              />
+            </label>
+            <span onClick={onSubmit} className='factoryInput__nweetBtn'>
+              트윗하기
+            </span>
+          </div>
+        </div>
       </div>
-      <label htmlFor='attach-file' className='factoryInput__label'>
-        <span>Add photos</span>
-        <FontAwesomeIcon icon={faPlus} />
-      </label>
-      <input
-        id='attach-file'
-        type='file'
-        accept='image/*'
-        onChange={onFileChange}
-        style={{
-          opacity: 0,
-        }}
-      />
+
       {attachment && (
         <div className='factoryForm__attachment'>
           <img

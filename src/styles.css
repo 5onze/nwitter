@@ -1,4 +1,4 @@
-@import 'https://cdn.jsdelivr.net/npm/reset-css@5.0.1/reset.min.css';
+@import "https://cdn.jsdelivr.net/npm/reset-css@5.0.1/reset.min.css";
 
 * {
   box-sizing: border-box;
@@ -11,9 +11,9 @@ input {
 }
 
 body {
-  background-color: #f1f1f1;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen,
-    Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+  background-color: #fff;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen,
+    Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
   font-size: 14px;
   color: rgb(133, 133, 133);
 }
@@ -32,18 +32,76 @@ form {
   width: 100%;
 }
 
+/* Header Menu (Left Side menu)*/
+
+header {
+  max-width: 250px;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  margin-top: 20px;
+  border-right: 1px solid rgb(239 243 244);
+  flex-grow: 1;
+  align-items: flex-start;
+}
+.headerIcon {
+  width: 50px;
+  height: 50px;
+}
+.headerIcon a {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.header_list {
+  width: 100%;
+  height: 50px;
+  display: flex;
+  align-items: center;
+  font-size: 20px;
+  font-weight: 400;
+  color: #3c4043;
+  padding: 10px;
+}
+.header_list .header_fontAwesomeIcon {
+  width: 24px;
+  height: 24px;
+}
+.header_list span {
+  margin-left: 20px;
+  margin-right: 16px;
+}
+
+/* Home navigation */
+.center {
+  max-width: 1200px;
+  width: 100%;
+  margin: 0 auto;
+  display: flex;
+  justify-content: center;
+}
 .nweet-input::placeholder {
   color: white;
   opacity: 0.9;
 }
-
 .container {
   width: 100%;
-  max-width: 320px;
+  max-width: 600px;
   display: flex;
   flex-direction: column;
 }
-
+.nav {
+  margin-top: 20px;
+  padding-left: 16px;
+}
+.home {
+  font-size: 20px;
+  font-weight: 700;
+  color: #3c4043;
+}
 .formInput {
   width: 100%;
   padding: 10px 20px;
@@ -80,62 +138,179 @@ form {
   display: flex;
   flex-direction: column;
 }
+.setProfile {
+  border: 1px solid #cfd9de;
+  background-color: white;
+  width: 140px;
+  height: 40px;
+  border-radius: 20px;
+  font-weight: 700;
+  font-size: 15px;
+  cursor: pointer;
+}
 .profileInput__label {
   margin-top: 20px;
   display: flex;
   justify-content: center;
   align-items: center;
 }
-.profileForm__submit {
-  margin-top: 7px;
-}
+
 .profileForm__attachment {
   align-items: center;
+}
+.profileForm__attachment img {
+  width: 140px;
+  height: 140px;
+  border-radius: 50%;
 }
 .logOut {
   margin-top: 50px;
 }
 
+/* Modal page */
+.Modal_container {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.4);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.modal {
+  position: absolute;
+  width: 600px;
+  height: 600px;
+  min-height: 400px;
+  padding: 40px;
+  text-align: center;
+  background-color: #fff;
+  border-radius: 10px;
+  box-shadow: 0 2px 3px 0 rgba(34, 36, 38, 0.15);
+  position: relative;
+}
+.modal_title {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 10px;
+}
+.modal_title h1 {
+  font-size: 31px;
+  font-weight: 700;
+  color: #0f1419;
+}
+.modal_title span {
+  font-size: 15px;
+  color: #536471;
+}
+.modal_center {
+  padding: 0 20px;
+  overflow: hidden;
+}
+.modal_profilePhoto {
+  width: 100%;
+  height: 100%;
+  max-height: 300px;
+  display: flex;
+}
+.modal_profilePhoto_box {
+  width: 100%;
+  height: 100%;
+  align-items: center;
+  justify-content: center;
+  margin: 60px 0;
+}
+.modal_profilePhoto_box img {
+  width: 180px;
+  height: 180px;
+  border-radius: 50%;
+}
+.profileForm__submit {
+  margin-top: 7px;
+}
 /* Nwitter Factory */
-
+.main_profileImage {
+  width: 50px;
+  height: 50px;
+}
+.main_profileImage img {
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+}
 .factoryForm {
   display: flex;
   flex-direction: column;
   align-items: center;
   width: 100%;
+  margin-top: 20px;
 }
 
 .factoryInput__container {
   display: flex;
-  justify-content: space-between;
-  align-items: center;
-  flex-wrap: wrap;
-  position: relative;
+  align-items: flex-start;
   margin-bottom: 20px;
   width: 100%;
+  height: 190px;
+  border-bottom: 1px solid rgb(239, 243, 244);
+  padding-bottom: 10px;
+  padding-left: 16px;
 }
-
-.factoryInput__input {
+.factoryInput__left {
+  flex-grow: 0;
+  flex-basis: 50px;
+}
+.factoryInput__right {
   flex-grow: 1;
-  height: 40px;
-  padding: 0px 20px;
-  color: rgb(100, 100, 100);
-  border: 1px solid #04aaff;
-  border-radius: 20px;
-  font-weight: 500;
-  font-size: 12px;
+  margin-left: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 60px;
 }
-
-.factoryInput__arrow {
-  position: absolute;
-  right: 0;
-  background-color: #04aaff;
+.factoryInput__nweetLine {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.factoryInput__input {
+  width: 100%;
+  padding: 10px 20px 20px 0;
+  color: rgb(100, 100, 100);
+  font-weight: 500;
+  margin-bottom: 20px;
+  border-bottom: 1px solid rgb(239, 243, 244);
+  font-size: 20px;
+}
+.factoryInput__nweetBtn {
+  background-color: rgba(29, 155, 240, 0.5);
   height: 40px;
-  width: 40px;
+  width: 94px;
   padding: 10px 0px;
-  text-align: center;
   border-radius: 20px;
   color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  font-weight: 700;
+}
+.factoryInput__label {
+  display: flex;
+  width: 34px;
+  height: 34px;
+  justify-content: center;
+  align-items: center;
+  border-radius: 50%;
+  transition: all ease-in 0.1s;
+}
+.factoryInput__label:hover {
+  background-color: rgba(4, 171, 255, 0.1);
+}
+.factoryInput__label input {
+  display: none;
 }
 
 .factoryInput__label,
@@ -175,6 +350,10 @@ form {
 
 /* Nweet */
 
+article {
+  display: flex;
+}
+
 .nweetEdit .formBtn {
   cursor: pointer;
   margin-top: 15px;
@@ -185,28 +364,38 @@ form {
   margin-bottom: 20px;
   background-color: white;
   width: 100%;
-  max-width: 320px;
   padding: 20px;
-  border: 1px solid #cfd9de;
-  border-radius: 10px;
+  border-bottom: 1px solid rgb(239, 243, 244);
   position: relative;
   display: flex;
   flex-direction: column;
   color: rgba(0, 0, 0, 0.8);
 }
-
-.nweet h4 {
-  font-size: 14px;
+.nweet_article {
+  display: flex;
+  align-items: flex-start;
+  justify-content: flex-start;
+  font-size: 15px;
 }
-
+.nweet_profile {
+  flex-basis: 50px;
+  margin-right: 12px;
+}
 .nweet img {
-  right: -10px;
-  top: 20px;
-  position: absolute;
   border-radius: 50%;
   width: 50px;
   height: 50px;
+}
+.nweet_username {
+  font-weight: 700;
+  margin-bottom: 2px;
+}
+.nweet_like {
+  display: flex;
+  gap: 4px;
+  font-size: 16px;
   margin-top: 10px;
+  cursor: pointer;
 }
 
 .nweet__actions {
@@ -223,7 +412,7 @@ form {
   margin-right: 10px;
 }
 
-/* Auth */
+/* SNS 로그인  */
 
 .authContainer {
   display: flex;
@@ -232,9 +421,15 @@ form {
   justify-content: center;
   align-items: center;
 }
-
+.authContainer h1 {
+  font-size: 2.4em;
+  margin-bottom: 20px;
+  color: #3c4043;
+  font-weight: 500;
+}
 .authBtns {
   display: flex;
+  flex-direction: column;
   justify-content: space-between;
   width: 100%;
   max-width: 320px;
@@ -243,28 +438,74 @@ form {
 .authBtn {
   cursor: pointer;
   border-radius: 20px;
-  border: none;
+  border: 1px solid #cfd9de;
   padding: 10px 0px;
-  font-size: 12px;
+  font-size: 15px;
   text-align: center;
-  width: 150px;
+  width: 300px;
+  height: 40px;
   background: white;
   cursor: pointer;
+  margin: 12px 0;
 }
-
-/* AuthForm */
+.authBtn:hover {
+  background: rgba(210, 227, 252, 0.3);
+}
+.authBtn span {
+  margin-left: 10px;
+}
+.authLine {
+  width: 100%;
+  display: flex;
+}
+.authLine > * {
+  width: 100%;
+}
+.authLine hr {
+  width: 100%;
+  height: 17px;
+  border: 0;
+  border-top: 1px solid #cfd9de;
+  text-align: center;
+  overflow: visible;
+  margin-top: 24px;
+}
+.authLine hr::after {
+  content: "또는";
+  position: relative;
+  top: -10px;
+  background: #fff;
+  padding: 0 10px;
+  color: #3c4043;
+  font-size: 1.2em;
+}
+/* 로그인 Input */
 
 .authInput {
   max-width: 320px;
   width: 100%;
+  height: 56px;
   padding: 10px;
-  border-radius: 30px;
+  border-radius: 8px;
   background-color: rgba(255, 255, 255, 1);
-  margin-bottom: 10px;
-  font-size: 12px;
-  color: black;
+  margin: 12px 0;
+  font-size: 1.2em;
+  color: #3c4043;
+  border: 1px solid #cfd9de;
 }
-
+.authInput:focus {
+  color: #3c4043;
+  border: 2px solid #000;
+}
+.authInput::placeholder {
+  color: #3c4043;
+  opacity: 0.8;
+  font-size: 1em;
+}
+.authInput:focus::placeholder {
+  font-size: 1em;
+  color: #1d9bf0;
+}
 .authSubmit {
   text-align: center;
   background: #04aaff;
@@ -279,13 +520,17 @@ form {
   font-weight: 500;
   font-size: 12px;
 }
-
+.authSignIn {
+  display: flex;
+  justify-content: left;
+  align-items: center;
+  width: 100%;
+  height: 50px;
+  font-size: 1em;
+}
 .authSwitch {
   color: #04aaff;
   cursor: pointer;
-  margin-top: 10px;
-  margin-bottom: 50px;
-  display: block;
-  font-size: 12px;
+
   text-decoration: underline;
 }
