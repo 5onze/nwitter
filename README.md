@@ -1,70 +1,91 @@
-# Getting Started with Create React App
+# 트위터 클론코딩 ( + Firebase )
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+Actions: https://www.notion.so/Dark-mode-046935f180c8471e9ffb33ea09bc8ac0, https://www.notion.so/fb421bbc474b449f8891104520b24268, https://www.notion.so/96eb1f89a3514a3f8097d0492ecfb933, https://www.notion.so/6a7a946085934376b90d90689d921934, https://www.notion.so/Home-08a44fdf95a94e8abee31abba0d42728, https://www.notion.so/Profile-97f3c807536b4961a9c58d350f817558, https://www.notion.so/User-0281260a3c0548d8b310c379dff40206, https://www.notion.so/React-aa6c2380ae594771927b9a86bd419a6f
+Area: IT공부
+Area-T: IT공부
+Done-Check: No
+Due: 2023년 2월 28일
+Goal: https://www.notion.so/React-JS-c50bda535baf4dfea6541496f4eeec1e
+Percent: 0.375
+Progress: ▓▓▓░░░░░░░ 38%
+Status: Active 🔥
 
-## Available Scripts
+### 1. 서비스 소개
 
-In the project directory, you can run:
+트위터 클론코딩
 
-### `npm start`
+#1-1. 로그인 화면
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+- Firebase Authentication 기능을 이용해 로그인과 회원가입 기능 구현 (깃허브, 구글 소셜 로그인/회원가입과 이메일 로그인/회원가입)
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+#1-2. 홈화면
 
-### `npm test`
+- 로그인을 하면 홈화면 보여주기.
+- 왼쪽 네비게이션바, 가운데 트위터 게시물, 오른쪽은 팔로우 리스트 및 추천 회원으로 구성하였습니다.
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+#1-3. 트윗 작성, 수정, 삭제
 
-### `npm run build`
+- Firebase Realtime Database를 이용해 데이터를 저장하고 불러오는 기능을 구현
+- Firebase Cloud Firestore를 이용해 트윗을 저장하고 관리
+- Firebase Storage를 이용한 이미지 업로드 기능 구현
+- 텍스트와 이미지를 선택하고 트윗하기를 하면 게시물을 등록할 수 있습니다.
+- 이모지도 추가할수 있습니다.
+- 내가 올린 게시물을 수정하고 삭제할 수있습니다.
+- 다른 유저의 게시물의 수정 및 삭제는 할수 없습니다.
+- 게시물을 등록하면 유저의 닉네임과 프로필 이미지, 작성한 시간이 함께 보여집니다.
+- 작성한 시간을 상대시간으로 볼수 있습니다. (ex. 몇 초전, 몇 분전, 몇 일전 등)
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+#1-3. 검색기능
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+- 나와 다른 유저가 올린 게시물의 내용과 닉네임을 검색할 수 있습니다.
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+(기능설명 추가)
 
-### `npm run eject`
+#1-4. 좋아요
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+- 다른 유저의 게시물에 ❤️ 좋아요를 누를 수 있습니다.
+- 한번 더 클릭하면 좋아요 취소가 가능합니다.
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+#1-5. 유저
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+- 사용자 정보 확인
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+프로필 페이지에서 사용자가 가입할때 작성한 이메일 주소와 가입 날짜, 닉네임 등을 볼수 있습니다.
 
-## Learn More
+- 닉네임 변경 및 프로필 이미지 변경
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+프로필 이미지를 클릭하면 모달창으로 프로필 이미지를 변경 및 추가할 수 있습니다.
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+- 기본 프로필 이미지
 
-### Code Splitting
+소셜 로그인을 통하지 않은 이메일 가입자의 프로필 이미지를 기본 이미지로 변경하였습니다.
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+#1-6. 다크모드 (추가예정)
 
-### Analyzing the Bundle Size
+### 2. 개발과정 (어려웠던 점과 해결방법)
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+#2-1. Firebase Firestore Users collection
 
-### Making a Progressive Web App
+가입할때 사용자의 정보를 유저 컬렉션에 저장하도록 구현 하였습니다.
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
+처음에는 게시물 생성시 생성자의 정보를 트윗 컬렉션에 저장하도록 하였는데,
 
-### Advanced Configuration
+게시물이 없는 처음 사용자는 프로필 페이지에서 유저의 정보를 가져올 수 없기 때문에 유저 컬렉션과 트윗 컬렉션을 별개로 만들어 관리하도록 했습니다.
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
+#2-1. ❤️ 좋아요 기능
 
-### Deployment
+Like 컬렉션을 생성하여 좋아요 클릭 했을시 좋아요가 카운팅 되어 도큐먼트에 저장됩니다.
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
+(설명 추가)
 
-### `npm run build` fails to minify
+### 3. 앞으로의 계획
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+트위터 클린 코딩을 하면서 기본적인 기능들을 구현하고 Firebase의 다양한 기능을 활용하는 방법을 익힐 수 있었습니다.
+
+가능하면 트위터와 최대한 비슷하게 구현하고 싶었으나, 기능을 하나씩 추가해 가면서 아쉬운 부분들이 많았습니다.
+
+파이어베이스 공식문서나 인터넷 검색을 많이 찾아봤지만 그럼에도 어려운 부분이 있어서 생각보다 많은 기능을 넣지 못하였습니다.
+
+구현 과정에서 발생하는 문제들을 해결하면서 개발 능력을 향상시킬 수 있었습니다.
+
+앞으로의 계획은 트위터 앱의 기능을 더욱 확장하고, UI/UX를 개선하는 것입니다. 예를 들어 트윗한 게시물에 다른 유저가 댓글을 달수 있는 기능을 추가하거나, 지도 기능을 추가하여 위치 정보를 함께 등록할 수 있도록 하는 것입니다.
