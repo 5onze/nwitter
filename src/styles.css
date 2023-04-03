@@ -32,6 +32,52 @@ form {
   width: 100%;
 }
 
+nav.nav_home {
+  height: 53px;
+  display: flex;
+  padding: 0 16px 0 16px;
+  align-items: center;
+}
+.home_container {
+  border-right: 1px solid rgb(239 243 244);
+}
+/*  Emoji picker styles  */
+.factoryForm .EmojiPickerReact {
+  --epr-emoji-size: 20px;
+  --epr-category-label-bg-color: #fff;
+  --epr-search-border-color: #1d9bf0;
+  --epr-search-input-bg-color: #fff;
+  --epr-picker-border-radius: 15px;
+  --epr-category-icon-active-color: #fff;
+  position: relative;
+  z-index: 100;
+}
+.factoryForm .EmojiPickerReact.epr-main {
+  position: absolute;
+  top: 34px;
+  left: 0;
+  box-shadow: rgba(0, 0, 0, 0.2) 0px 12px 28px 0px,
+    rgba(0, 0, 0, 0.1) 0px 2px 4px 0px,
+    rgba(255, 255, 255, 0.05) 0px 0px 0px 1px inset;
+}
+.emoji_btn {
+  border: 0;
+  background: transparent;
+  font-size: 18px;
+  color: #1d9bf0;
+}
+.factoryForm .EmojiPickerReact .epr-search-container input.epr-search {
+  border: 1px solid #cfd9de;
+  border-radius: 25px;
+  height: 44px;
+  display: block;
+}
+.factoryForm .EmojiPickerReact .epr-search-container input.epr-search:focus {
+  border: 2px solid #1d9bf0;
+}
+.epr-category-nav {
+  border-bottom: 1px solid #edeff0;
+}
 /* Header Menu (Left Side menu)*/
 
 header {
@@ -39,7 +85,7 @@ header {
   width: 100%;
   display: flex;
   flex-direction: column;
-  margin-top: 20px;
+  padding-top: 20px;
   border-right: 1px solid rgb(239 243 244);
   flex-grow: 1;
   align-items: flex-start;
@@ -83,6 +129,9 @@ header {
   display: flex;
   justify-content: center;
 }
+.center_height {
+  min-height: 579px;
+}
 .nweet-input::placeholder {
   color: white;
   opacity: 0.9;
@@ -92,10 +141,6 @@ header {
   max-width: 600px;
   display: flex;
   flex-direction: column;
-}
-.nav {
-  margin-top: 20px;
-  padding-left: 16px;
 }
 .home {
   font-size: 20px;
@@ -286,7 +331,7 @@ header {
 }
 .factoryInput__nweetBtn {
   background-color: rgba(29, 155, 240, 0.5);
-  height: 40px;
+  height: 34px;
   width: 94px;
   padding: 10px 0px;
   border-radius: 20px;
@@ -296,6 +341,10 @@ header {
   justify-content: center;
   cursor: pointer;
   font-weight: 700;
+  margin-right: 10px;
+}
+.factoryInput__label_left {
+  display: flex;
 }
 .factoryInput__label {
   display: flex;
@@ -305,6 +354,7 @@ header {
   align-items: center;
   border-radius: 50%;
   transition: all ease-in 0.1s;
+  position: relative;
 }
 .factoryInput__label:hover {
   background-color: rgba(4, 171, 255, 0.1);
